@@ -29,11 +29,24 @@ public class PlayerController : MonoBehaviour {
 		WindowRaycast ();
 		DistanceCalculation ();
 		RotationCalculation ();
+		Sprint ();
+		//stops the Navmesh moving the rotation of the player after they have moved
 		if (transform.rotation != savedRot && isMoving == false) {
 			transform.rotation = savedRot;
 		}
 	}
 
+	void Sprint(){
+		if (Input.GetKeyDown (KeyCode.LeftShift) && isMoving == true) 
+		{
+			agent.speed = agent.speed * 2.0f;
+		}
+		if (Input.GetKeyUp (KeyCode.LeftShift)) 
+		{
+			agent.speed = agent.speed / 2.0f;
+		
+		}
+	}
 
 
 
