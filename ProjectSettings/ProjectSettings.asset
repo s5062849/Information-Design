@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
+<<<<<<< HEAD
   productGUID: 04cb831d4bb6f6e4cb5126cbf6e83a0b
+=======
+  productGUID: 84bcef8511a7e5348a19ef9b69d78771
+>>>>>>> b84e2ad2702a5a8a08e2fec4a4b98399ad432296
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -12,7 +16,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: InterfaceDesign
+=======
+  productName: Interface_design
+>>>>>>> b84e2ad2702a5a8a08e2fec4a4b98399ad432296
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -406,6 +414,10 @@ PlayerSettings:
   switchAllowsVideoCapturing: 1
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
+<<<<<<< HEAD
+=======
+  switchUserAccountLockEnabled: 0
+>>>>>>> b84e2ad2702a5a8a08e2fec4a4b98399ad432296
   switchSupportedNpadStyles: 3
   switchSocketConfigEnabled: 0
   switchTcpInitialSendBufferSize: 32
@@ -557,14 +569,22 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
+<<<<<<< HEAD
   metroPackageName: InterfaceDesign
+=======
+  metroPackageName: Interface_design
+>>>>>>> b84e2ad2702a5a8a08e2fec4a4b98399ad432296
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
+<<<<<<< HEAD
   metroApplicationDescription: InterfaceDesign
+=======
+  metroApplicationDescription: Interface_design
+>>>>>>> b84e2ad2702a5a8a08e2fec4a4b98399ad432296
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -634,9 +654,15 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
+<<<<<<< HEAD
   cloudProjectId: 37d298f6-7c4b-475b-8e57-174c6264c678
   projectName: InterfaceDesign
   organizationId: swlicensing
+=======
+  cloudProjectId: 01679aac-1320-46f2-aa1a-1b80d62b3520
+  projectName: Interface_design
+  organizationId: s5062849
+>>>>>>> b84e2ad2702a5a8a08e2fec4a4b98399ad432296
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
