@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 		DistanceCalculation ();
 		RotationCalculation ();
 		Sprint ();
+
 		//stops the Navmesh moving the rotation of the player after they have moved
 		if (transform.rotation != savedRot && isMoving == false) {
 			transform.rotation = savedRot;
