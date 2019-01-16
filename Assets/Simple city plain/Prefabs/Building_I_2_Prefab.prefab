@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4370792754970456}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building_I_2_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4823119686916548}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building_I_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 33464457155471092}
   - component: {fileID: 23523160738924668}
   - component: {fileID: 64671492500147286}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building_I_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4357323429042996}
   - component: {fileID: 33100513355457722}
   - component: {fileID: 23304195652795686}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Fire_escape_leader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,14 +109,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199332134306268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.50000083, y: 0.49999914, z: 0.49999914, w: 0.50000083}
+  m_LocalPosition: {x: 20.76, y: 44.15, z: 0.47}
+  m_LocalScale: {x: 1.000001, y: 1.0000002, z: 1.0000008}
   m_Children:
   - {fileID: 4823119686916548}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: -90, z: -90}
 --- !u!4 &4823119686916548
 Transform:
   m_ObjectHideFlags: 1
@@ -240,8 +240,8 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9f70c3b25552f8c4cbfc2dc5b60b2c0e, type: 3}
