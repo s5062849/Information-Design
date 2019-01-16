@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
 			transform.rotation = savedRot;
 		}
 	}
-
+	//how to sprint
 	void Sprint(){
 		if (Input.GetKeyDown (KeyCode.LeftShift) && isMoving == true) 
 		{
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 	void WindowRaycast(){
 	
 		//this is how the player moves the character around the screen
-		if (Input.GetMouseButtonDown (1)) {
+		if (Input.GetMouseButtonDown (0)) {
 
 			Ray ray = cam.ScreenPointToRay (Input.mousePosition);
 
