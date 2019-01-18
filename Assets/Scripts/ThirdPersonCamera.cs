@@ -19,10 +19,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
 	private void Start()
 	{
-		gameObject.transform.position.y = 1.5f;
-		camTransform = transform;
 		cam = Camera.main;
-
 	}
 
 	private void Update()
@@ -34,17 +31,26 @@ public class ThirdPersonCamera : MonoBehaviour
 
 
 	}
-
-
+		
+	//this then applies the rotation to the camera
 	private void LateUpdate()
 	{
-		Vector3 dir = new Vector3 (0, 0, -distance);
+			Vector3 dir = new Vector3 (0, 0, -distance);
 			Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);
 			camTransform.position = lookAt.position + rotation * dir;
 			camTransform.LookAt (lookAt.position);
 
 	}
 
+
+	private void startPos()
+	{
+		camTransform = transform;
+	}
+
+
+
+	//this gets the players mouse and clamps the camera with a max and min angle
 	private void moveCamera()
 	{
 		currentX -= Input.GetAxis ("Mouse X");
