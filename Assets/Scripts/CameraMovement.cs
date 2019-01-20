@@ -58,8 +58,8 @@ public class CameraMovement : MonoBehaviour {
 		{
 			Vector3 dir = new Vector3 (0, 0, -distance);
 			Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);
-			transform.position = obj.position + rotation * dir;
-			transform.LookAt (obj);
+			transform.position = player.transform.position + rotation * dir;
+			transform.LookAt (player.transform);
 		}		
 
 	}
@@ -97,12 +97,24 @@ public class CameraMovement : MonoBehaviour {
 			break;
 		case 2:
 			
-			CameraTarget ();
+			obj = player.transform;
 			onCharacter = true;
 			EnableCharacterMovement ();
+			break;
 
+		case 3:
+
+			offset = new Vector3 (0, 0, 5);
+
+			CameraTarget ();
+			targetpos = obj.position + offset;
+			smoothedPos = Vector3.Lerp (transform.position, targetpos, smoothspeed);
+			transform.position = smoothedPos;
+			transform.LookAt (obj);
 
 			break;
+
+
             default:
                 Debug.Log("Camera Movments Error");
                 break;
@@ -148,6 +160,22 @@ public class CameraMovement : MonoBehaviour {
 	public void setGameStarted(bool gameStarted)
 	{
 		this.gameStarted = gameStarted;
+	}
+
+	public void CharacterScreen()
+	{
+		cameraPos = 1;
+	}
+
+
+	public void OptionsScreen ()
+	{
+		cameraPos = 3;
+	}
+
+	public void Back()
+	{
+		cameraPos = 0;
 	}
 
 }
