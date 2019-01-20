@@ -17,14 +17,19 @@ public class ThirdPersonCamera : MonoBehaviour
 	private float currentX = 0.0f;
 	private float currentY = 0.0f;
 
+	private bool gameStarted = false;
+
+	public Vector3 offset = new Vector3 (0, 0, 0);
+
 	private void Start()
 	{
 		cam = Camera.main;
+		camTransform = transform;
 	}
 
 	private void Update()
 	{
-		if (Input.GetMouseButton (1))
+		if (Input.GetMouseButton (1) && gameStarted)
 		{
 			moveCamera ();	
 		}
@@ -35,17 +40,20 @@ public class ThirdPersonCamera : MonoBehaviour
 	//this then applies the rotation to the camera
 	private void LateUpdate()
 	{
-			Vector3 dir = new Vector3 (0, 0, -distance);
+		if (gameStarted) 
+		{
+			Vector3 dir = new Vector3 (0, 0, -distance) + offset;
 			Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);
 			camTransform.position = lookAt.position + rotation * dir;
 			camTransform.LookAt (lookAt.position);
+		}
 
 	}
 
 
 	private void startPos()
 	{
-		camTransform = transform;
+		
 	}
 
 
@@ -60,5 +68,8 @@ public class ThirdPersonCamera : MonoBehaviour
 		currentY = Mathf.Clamp (currentY, minAngleY, maxAngleY);
 	}
 
-
+	public void setGameStarted(bool gameStarted)
+	{
+		this.gameStarted = gameStarted;
+	}
 }
