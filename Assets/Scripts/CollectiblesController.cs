@@ -23,7 +23,7 @@ public class CollectiblesController : MonoBehaviour {
 	public Toggle orangeHut;
 	public Toggle fountain;
 	public Toggle greenHut;
-
+	public Text FinalScore;
 
 
 	void Update()
@@ -123,6 +123,7 @@ public class CollectiblesController : MonoBehaviour {
 			}
 		}
 		scoreText.text = "Score: " + score.ToString ();
+		FinalScore.text = scoreText.text;
 	}
 
 

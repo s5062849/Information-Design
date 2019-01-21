@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerSettings : MonoBehaviour {
 
-	public PlayerData[] ps;
+	public PlayerData[] pd;
 
 	public InputField playerInput;
 
@@ -17,14 +17,12 @@ public class PlayerSettings : MonoBehaviour {
 
 	public CameraMovement cm;
 
+	public Text yourName;
+	//sets the player name
 	public void playerEnterName()
 	{
-		playerInputName = playerInput.text;
-
-		ps [0].playerName = playerInputName;
-
-		ps [0].playerCharacter = cm.player; 
-
+		pd[0].playerName = playerInput.text;
+		yourName.text = pd [0].playerName;
 	}
 
 
@@ -32,9 +30,10 @@ public class PlayerSettings : MonoBehaviour {
 	{
 		if (Input.GetKeyDown ("w")) 
 		{
-			Debug.Log ("Player Name :" + ps[0].playerName);
-			Debug.Log ("Player Character :" + ps[0].playerCharacter.name);
+			Debug.Log ("Player Name :" + pd[0].playerName);
+		
 		}
+			
 	}
 
 
@@ -42,7 +41,7 @@ public class PlayerSettings : MonoBehaviour {
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream fs = File.Create (Application.persistentDataPath + "/playerData.dat");
-		bf.Serialize (fs, ps);
+		bf.Serialize (fs, pd);
 		fs.Close ();
 		Debug.Log ("Data Saved.");
 
@@ -53,7 +52,7 @@ public class PlayerSettings : MonoBehaviour {
 		if (File.Exists (Application.persistentDataPath + "/playerData.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream fs = File.Open (Application.persistentDataPath + "/playerData.dat", FileMode.Open);
-			ps = (PlayerData[])bf.Deserialize (fs);
+			pd = (PlayerData[])bf.Deserialize (fs);
 			fs.Close ();
 			Debug.Log ("Data Loaded.");
 		}
@@ -62,10 +61,18 @@ public class PlayerSettings : MonoBehaviour {
 		{
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream fs = File.Create (Application.persistentDataPath + "/playerData.dat");
-			bf.Serialize (fs, ps);
+			bf.Serialize (fs, pd);
 			fs.Close ();
 			Debug.Log ("Data Saved.");
 		}
 
 	}
+
+
+	public void CheckHighscore()
+	{
+		
+	}
+
+
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour 
 {
 	public GameObject mainMenu;
@@ -16,7 +17,7 @@ public class MenuController : MonoBehaviour
 	public InputField playerName;
 	public GameObject des;
 	public Image healthBar;
-
+	public GameObject highScore;
 
 	public CharacterSelection cs;
 
@@ -25,6 +26,7 @@ public class MenuController : MonoBehaviour
 		contin.SetActive (false);
 		back.SetActive (false);
 		character.SetActive (false);
+		highScore.SetActive (false);
 	}
 
 
@@ -106,4 +108,14 @@ public class MenuController : MonoBehaviour
 		des.SetActive (true);
 	}
 
+	public void HighScore()
+	{
+		highScore.SetActive (true);
+		gameMenu.SetActive (false);
+	}
+
+	public void reload()
+	{
+		SceneManager.LoadScene (0);
+	}
 }

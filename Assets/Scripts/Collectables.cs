@@ -24,6 +24,10 @@ public class Collectables : MonoBehaviour {
 
 		if (gameObject.name == "Heart") {
 			mc.PickUp ();
+			source = col.GetComponent<AudioSource>();
+			cc.Incrementcount (gameObject);
+			source.PlayOneShot (clip, 1.0f);
+			Destroy (gameObject);
 		}
 		else
 		{

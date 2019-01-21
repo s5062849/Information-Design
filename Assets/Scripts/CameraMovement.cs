@@ -16,6 +16,11 @@ public class CameraMovement : MonoBehaviour {
 
 	public GameObject player;
 
+	public MenuController mc;
+
+	public PlayerSettings ps;
+
+	public HighscoreController hs;
 
 	//variables for the moveable camera
 	private const float minAngleY = 0.0f;
@@ -33,12 +38,13 @@ public class CameraMovement : MonoBehaviour {
 
 	public bool gameStarted = false;
 
-	//public Vector3 offset = new Vector3 (0, 0, 0);
+	public bool highscore  = false;
+
 
 
 	private void Start()
 	{
-		//cam = Camera.main;
+		
 
 	}
 
@@ -46,6 +52,17 @@ public class CameraMovement : MonoBehaviour {
 	{
 		if (Input.GetMouseButton (1) && gameStarted) {
 			MoveCamera ();	
+		}
+		if (mc.healthBar.fillAmount == 0 && highscore == false) 
+		{
+			gameStarted = false;
+			ChangeCam ();
+			player.GetComponent<PlayerController> ().enabled = false;
+			highscore = true;
+			hs.LoadPlayerData ();
+			hs.SubmitNewScore ();
+			mc.HighScore ();
+
 		}
 	}
 
@@ -135,6 +152,7 @@ public class CameraMovement : MonoBehaviour {
     public void ChangeCam()
     {
         cameraPos += 1;
+		Debug.Log (cameraPos);
         
     }
 
