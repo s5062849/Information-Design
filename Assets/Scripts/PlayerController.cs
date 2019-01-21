@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour {
@@ -17,10 +17,17 @@ public class PlayerController : MonoBehaviour {
 	private Quaternion savedRot;
 	bool isMoving = false;
 
+	public int steps;
+	public bool startTime;
+	public float startMoving;
+
+	public Text stepsText;
+
 
 	// Use this for initialization
 	void Start () {
 		myAnim = GetComponent<Animator> ();
+		steps = 0;
 	}
 	
 	// Update is called once per frame
@@ -30,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 		DistanceCalculation ();
 		RotationCalculation ();
 		Sprint ();
+		Steps ();
 
 		//stops the Navmesh moving the rotation of the player after they have moved
 		if (transform.rotation != savedRot && isMoving == false) {
@@ -56,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 		//this is how the player moves the character around the screen
 		if (Input.GetMouseButtonDown (0)) {
 
+			startTime = true;
 			Ray ray = cam.ScreenPointToRay (Input.mousePosition);
 
 			if (Physics.Raycast (ray, out hit)) {
@@ -96,6 +105,29 @@ public class PlayerController : MonoBehaviour {
 
 
 
-
 }
+	void Steps()
+	{
+		if (isMoving == true) 
+		{
+			if (startTime == true)
+			{
+				startMoving = Time.time;
+				startTime = false;
+			}
+
+
+			if (Time.time > startMoving + 1.0f) 
+			{
+				steps += 2;
+				stepsText.text = "Steps :" + steps.ToString ();
+				startTime = true;
+			}
+
+		}
+
+
+
+	}
+
 	}

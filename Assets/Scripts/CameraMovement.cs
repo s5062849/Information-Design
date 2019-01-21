@@ -25,20 +25,20 @@ public class CameraMovement : MonoBehaviour {
 
 	public bool onCharacter = false;
 
-	private Camera cam;
+	//private Camera cam;
 
 	private float distance = 5.0f;
 	private float currentX = 0.0f;
-	private float currentY = 0.0f;
+	private float currentY = 5.0f;
 
-	private bool gameStarted = false;
+	public bool gameStarted = false;
 
 	//public Vector3 offset = new Vector3 (0, 0, 0);
 
 
 	private void Start()
 	{
-		cam = Camera.main;
+		//cam = Camera.main;
 
 	}
 
@@ -46,7 +46,6 @@ public class CameraMovement : MonoBehaviour {
 	{
 		if (Input.GetMouseButton (1) && gameStarted) {
 			MoveCamera ();	
-		
 		}
 	}
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MenuController : MonoBehaviour 
 {
 	public GameObject mainMenu;
@@ -9,7 +9,14 @@ public class MenuController : MonoBehaviour
 	public GameObject titleImage;
 	public GameObject contin;
 	public GameObject back;
+	public GameObject character;
 	public CameraMovement cameraMovement;
+	public GameObject gameMenu;
+	public GameObject pickup;
+	public InputField playerName;
+	public GameObject des;
+	public Image healthBar;
+
 
 	public CharacterSelection cs;
 
@@ -17,18 +24,27 @@ public class MenuController : MonoBehaviour
 	{
 		contin.SetActive (false);
 		back.SetActive (false);
-
+		character.SetActive (false);
 	}
 
 
+	void Update()
+	{
+		if (cameraMovement.gameStarted == true) {
+			healthBar.fillAmount -= 0.02f * Time.deltaTime;
+		} 
+
+	}
+
 	public void PlayGame()
 	{
+		character.SetActive (true);
 		mainMenu.SetActive (false);
 		titleImage.SetActive (false);
 		contin.SetActive (true);
 		back.SetActive (true);
 
-		cameraMovement.setGameStarted (true);
+
 	}
 
 	public void Confirm()
@@ -38,6 +54,10 @@ public class MenuController : MonoBehaviour
 		cs.tigerLight.SetActive (false);
 		cs.playerLight.SetActive (false);
 		cs.mouseLight.SetActive (false);
+		cameraMovement.setGameStarted (true);
+		character.SetActive (false);
+		gameMenu.SetActive (true);
+
 
 	}
 
@@ -70,5 +90,20 @@ public class MenuController : MonoBehaviour
 		Screen.fullScreen = isFullScreen;
 	}
 
+	public void PickUp()
+	{
+		pickup.SetActive (true);
+	}
+
+	public void drop()
+	{
+		pickup.SetActive (false);
+	}
+
+
+	public void examine()
+	{
+		des.SetActive (true);
+	}
 
 }

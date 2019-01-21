@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using UnityEngine.UI;
 
 public class CollectiblesController : MonoBehaviour {
 
 	public CollectiblesData[] cd;
 
+	public PlayerController pcPlayer;
+	public PlayerController pcTiger;
+	public PlayerController pcMouse;
 
-	void Awake()
-	{
-		//this means that data is kept between scenes
-		DontDestroyOnLoad (gameObject);
+	public RandomNumber rm;
 
-		//this means that it does not creat more than one type of this object and will not create errors
-		if (FindObjectsOfType (GetType ()).Length > 1) 
-		{
-			Destroy (gameObject);
-		}
+	public Text heartsText;
+	public Text diamondsText;
+	public Text starsText;
+	public Text scoreText;
+	public int score;
+	public Toggle orangeHut;
+	public Toggle fountain;
+	public Toggle greenHut;
 
 
-	}
 
 	void Update()
 	{
@@ -34,6 +36,7 @@ public class CollectiblesController : MonoBehaviour {
 		{
 			LoadData ();
 		}
+		Score ();
 	}
 
 
@@ -42,14 +45,19 @@ public class CollectiblesController : MonoBehaviour {
 		if (go.name.Contains ("Heart")) 
 		{
 			cd [0].collectibleNum++;
+			heartsText.text = cd [0].collectibleNum.ToString ();
+
 		}
 		else if (go.name.Contains ("Star")) 
 		{
 			cd [1].collectibleNum++;
+			starsText.text = cd [1].collectibleNum.ToString ();
+
 		}
 		else if (go.name.Contains ("Diamond")) 
 		{
 			cd [2].collectibleNum++;
+			diamondsText.text = cd [2].collectibleNum.ToString ();
 		}
 
 
@@ -92,6 +100,30 @@ public class CollectiblesController : MonoBehaviour {
 		}
 	}
 
+
+	public void Score()
+	{
+		if (score < 0) {
+			score = 0;
+		}
+		else 
+		{
+			score = (cd [0].collectibleNum + cd [1].collectibleNum + cd [2].collectibleNum) * 10 - pcPlayer.steps - pcMouse.steps - pcTiger.steps;
+			if (orangeHut.isOn == true) {
+				score = (score + 1) * 100;
+			}
+			if (fountain.isOn == true) {
+				score = (score + 1) * 100;
+			}
+			if (greenHut.isOn == true) {
+				score = (score + 1) * 100;
+			}
+			if (rm.points != 0) {
+				score += (int)rm.points;
+			}
+		}
+		scoreText.text = "Score: " + score.ToString ();
+	}
 
 
 }

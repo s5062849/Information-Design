@@ -10,6 +10,10 @@ public class CharacterSelection : MonoBehaviour {
 	public GameObject mouseLight;
 	public GameObject tigerLight;
 
+	public GameObject mouse;
+	public GameObject player;
+	public GameObject tiger;
+
 	public CameraMovement cm;
 
 	
@@ -21,7 +25,7 @@ public class CharacterSelection : MonoBehaviour {
 	void RaycastCharacter(){
 
 		//this is how the player moves the character around the screen
-		if (Input.GetMouseButtonDown (0) && cm.setGameStarted == false) {
+		if (Input.GetMouseButtonDown (0) && cm.gameStarted == false) {
 
 			Ray ray = cam.ScreenPointToRay (Input.mousePosition);
 
@@ -54,16 +58,30 @@ public class CharacterSelection : MonoBehaviour {
 					Debug.Log("Did not hit player");
 				}
 
-				//agent.SetDestination (hit.point);
-				//when the player clicks a point on screen, the run annimation starts
-				//myAnim.SetBool ("isRunning", true);
-				//isMoving = true;
 			}
 
 
 		}
 	}
 
+	public void comnfirmCharacter()
+	{
+		if (cm.player.name == "Player") 
+		{
+			Destroy (mouse);
+			Destroy (tiger);
+		}
+		else if (cm.player.name == "tiger_idle") 
+		{
+			Destroy (player);
+			Destroy (mouse);
+		}
+		else if (cm.player.name == "MouseKnight") 
+		{
+			Destroy (player);
+			Destroy (tiger);
+		}
+	}
 
 
 

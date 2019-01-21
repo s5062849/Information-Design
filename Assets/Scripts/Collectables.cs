@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour {
 
+	public MenuController mc;
+
 	private AudioSource source; //the players audio source
 	[SerializeField] private AudioClip clip; //The audio that will play
 
@@ -19,20 +21,28 @@ public class Collectables : MonoBehaviour {
 
 
 	void OnTriggerEnter (Collider col){
-		
-		//outputs the game object that you have hit
-		Debug.Log ("Just hit: " + gameObject.name);
 
-		//gets the audio source
-		source = col.GetComponent<AudioSource>();
-		//plays the audio source
-		source.PlayOneShot (clip, 1.0f);
+		if (gameObject.name == "Heart") {
+			mc.PickUp ();
+		}
+		else
+		{
+			//outputs the game object that you have hit
+			Debug.Log ("Just hit: " + gameObject.name);
 
-		//destroys the game engine
-		Destroy (gameObject);
+			//gets the audio source
+			source = col.GetComponent<AudioSource>();
+			//plays the audio source
+			source.PlayOneShot (clip, 1.0f);
 
-		//calls the function Incrementcount and passes the game object that we collided with
-		cc.Incrementcount (gameObject);
+			//destroys the gameObject you collided with
+			Destroy (gameObject);
+
+			//calls the function Incrementcount and passes the game object that we collided with
+			cc.Incrementcount (gameObject);
+
+		}
+
 
 
 	}
