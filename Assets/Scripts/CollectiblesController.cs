@@ -103,11 +103,8 @@ public class CollectiblesController : MonoBehaviour {
 
 	public void Score()
 	{
-		if (score < 0) {
-			score = 0;
-		}
-		else 
-		{
+		
+
 			score = (cd [0].collectibleNum + cd [1].collectibleNum + cd [2].collectibleNum) * 10 - pcPlayer.steps - pcMouse.steps - pcTiger.steps;
 			if (orangeHut.isOn == true) {
 				score = (score + 1) * 100;
@@ -121,10 +118,14 @@ public class CollectiblesController : MonoBehaviour {
 			if (rm.points != 0) {
 				score += (int)rm.points;
 			}
+		if (score <= 0) 
+		{
+			score = 0;
 		}
 		scoreText.text = "Score: " + score.ToString ();
 		FinalScore.text = scoreText.text;
-	}
+		}
+		
 
 
 }

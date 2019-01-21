@@ -116,6 +116,6 @@ public class MenuController : MonoBehaviour
 
 	public void reload()
 	{
-		SceneManager.LoadScene (0);
+		SceneManager.LoadScene(0);
 	}
 }
